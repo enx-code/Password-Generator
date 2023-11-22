@@ -95,27 +95,21 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 var randomStr = ""
-var newArr = []
-var arrPass = new Array(10)
+var newArr = numericCharacters.concat(specialCharacters, lowerCasedCharacters, upperCasedCharacters)
 function getRandom(arr) {
   for (var i = 0; i < arr.length; i++){
     randomStr += arr[Math.floor(Math.random() * arr.length)];
-    
   }
 return randomStr
 }
-var numbers = getRandom(numericCharacters);
-var character = getRandom(specialCharacters);
-var lowerCase = getRandom(lowerCasedCharacters);
-var upperCase = getRandom(upperCasedCharacters);
-var allCharacters = numbers + character + lowerCase + upperCase;
-var ranAllCharacter = getRandom(allCharacters)
+var allRandCharacter = getRandom(newArr);
+
 console.log(
-  "allcharacter", allCharacters, arrPass.fill(allCharacters, 4, 8), randomStr.length + " randomstring"
+  "allcharacter",  randomStr.length + " randomstring"
 );
 // Function to generate password with user input
 function generatePassword() {
-  return ranAllCharacter
+  return allRandCharacter
 }
 
 // Get references to the #generate element
