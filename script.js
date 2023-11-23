@@ -115,16 +115,27 @@ function getPasswordOptions() {
 }
 
 // Function for getting a random element from an array
+
 function getRandom(arr) {
-  randomStr += arr[Math.floor(Math.random() * arr.length)];
+  randomStr = arr[Math.floor(Math.random() * arr.length)];
   return randomStr
 }
 
 // Function to generate password with user input
 function generatePassword() {
-  var selectedChar = getPasswordOptions()
-  return selectedChar
+  var selectedOption = getPasswordOptions()
+  var settingUp = ""
 
+  var spec = specialCharacters.join("");
+  var numb = numericCharacters.join("");
+  var lower = lowerCasedCharacters.join("");
+  var upper = upperCasedCharacters.join("");
+
+  if(selectedOption.special){
+    console.log(spec, "specail")
+    settingUp += spec
+  }
+  return settingUp
 }
 
 // Get references to the #generate element
