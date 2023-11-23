@@ -92,61 +92,39 @@ var upperCasedCharacters = [
 function getPasswordOptions() {
   var options = {length: Number(prompt("Enter the length of password (between 8 and 128 characters):"))};
 
-  console.log(options.length);
-  if(options.length !== Number || options.length < 8 || options.length >128){
-    alert("Please enter a valid password length between 8 and 128 characters.")
+  if (
+    typeof options.length !== "number" ||
+    options.length < 8 ||
+    options.length > 128
+  ) {
+    alert("Please enter a valid password length between 8 and 128 characters.");
     return null;
   }
-  return options.length
+  // create object value for options to confirm validation
+  options.special = confirm("Do you want special character?");
+  options.number = confirm("Do you want numeric character?");
+  options.lowerCase = confirm("Do you want lowercase character?");
+  options.upperCase = confirm("Do you want uppercase character?");
+  console.log(options);
+  // validate at least one character type is selected
+  if (!options.special && !options.number && !options.lowerCase && !options.upperCase) {
+    alert("Please select at least one character type!")
+    return null;
+  }
+  return options
 }
-getPasswordOptions()
+
 // Function for getting a random element from an array
-// var randomStr = "";
-// var arrTenDigit = Array(10)
-// var newArr = numericCharacters.concat(specialCharacters, lowerCasedCharacters, upperCasedCharacters);
 function getRandom(arr) {
   randomStr += arr[Math.floor(Math.random() * arr.length)];
   return randomStr
 }
-// var allRandCharacter = getRandom(newArr);
 
-// console.log(
-//   "allcharacter",  randomStr + " randomstring", allRandCharacter.length
-// );
 // Function to generate password with user input
 function generatePassword() {
-  // var length = prompt("minimum 8 character, maximum 128 character",)
-  // console.log(length, "prompt")
-  // if (length >= 8 && length <= 128){
-  //   var upperCase = confirm("do you want uppercase characters?");
-  //   var lowerCase = confirm("do you want lowercase characters?");
-  //   var number = confirm("do you want number characters?");
-  //   var specialChar = confirm("do you want special characters?");
-//     var choices = []
-//     if(upperCase === true){
-//       choices = choices.concat(upperCasedCharacters)
-//     }
-//     if (lowerCase === true) {
-//       choices = choices.concat(lowerCasedCharacters);
-//     }
-//     if (number === true) {
-//       choices = choices.concat(numericCharacters);
-//     }
-//     if (specialChar === true) {
-//       choices = choices.concat(specialCharacters);
-//     }
-//     if(choices.length===0){
-//       alert("Choose at least one type character!");
-//       return ""
-//     }
-//     var password = "";
-//     for (var i = 0; i < length; i++) {
-//       password += choices[Math.floor(Math.random() * choices.length)]
-//     }
-//     return password
-//   } else {
-//     alert("length is not valid, try again!");
-//   }
+  var selectedChar = getPasswordOptions()
+  return selectedChar
+
 }
 
 // Get references to the #generate element
