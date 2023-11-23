@@ -90,8 +90,14 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  var options = {length: prompt("Enter the length of password (between 8 and 128 characters):")}
+  var options = {length: Number(prompt("Enter the length of password (between 8 and 128 characters):"))};
+
   console.log(options.length);
+  if(options.length !== Number || options.length < 8 || options.length >128){
+    alert("Please enter a valid password length between 8 and 128 characters.")
+    return null;
+  }
+  return options.length
 }
 getPasswordOptions()
 // Function for getting a random element from an array
