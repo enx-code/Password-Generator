@@ -135,6 +135,19 @@ function generatePassword() {
     console.log(spec, "specail")
     settingUp += spec
   }
+  if(selectedOption.number){
+    settingUp += numb
+  }
+  if (selectedOption.lowerCase) {
+    settingUp += lower;
+  }
+  if (selectedOption.upperCase) {
+    settingUp += upper;
+  }
+  console.log(settingUp, "and", selectedOption)
+
+  var password = "";
+  
   return settingUp
 }
 
