@@ -145,10 +145,13 @@ function generatePassword() {
     settingUp += upper;
   }
   console.log(settingUp, "and", selectedOption)
-
+// declare password variable, for loop over selected options and run getRandom function with settingUp argument
   var password = "";
-  
-  return settingUp
+  for (var i = 0; i < selectedOption.length; i++){
+    password += getRandom(settingUp)
+  }
+
+  return password;
 }
 
 // Get references to the #generate element
