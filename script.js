@@ -131,6 +131,7 @@ function generatePassword() {
   var upper = upperCasedCharacters.join("");
 
   if(selectedOption.special){
+    console.log(spec, "specail")
     settingUp += spec
   }
   if(selectedOption.number){
@@ -148,7 +149,7 @@ function generatePassword() {
     password += getRandom(settingUp)
   }
 
-  return password;
+  return password
 }
 
 // Get references to the #generate element
