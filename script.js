@@ -105,7 +105,6 @@ function getPasswordOptions() {
   options.number = confirm("Do you want numeric character?");
   options.lowerCase = confirm("Do you want lowercase character?");
   options.upperCase = confirm("Do you want uppercase character?");
-  console.log(options);
   // validate at least one character type is selected
   if (!options.special && !options.number && !options.lowerCase && !options.upperCase) {
     alert("Please select at least one character type!")
@@ -132,7 +131,6 @@ function generatePassword() {
   var upper = upperCasedCharacters.join("");
 
   if(selectedOption.special){
-    console.log(spec, "specail")
     settingUp += spec
   }
   if(selectedOption.number){
@@ -144,7 +142,6 @@ function generatePassword() {
   if (selectedOption.upperCase) {
     settingUp += upper;
   }
-  console.log(settingUp, "and", selectedOption)
 // declare password variable, for loop over selected options and run getRandom function with settingUp argument
   var password = "";
   for (var i = 0; i < selectedOption.length; i++){
